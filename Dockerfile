@@ -15,9 +15,7 @@ ADD sites.conf /etc/httpd/conf.d/
 
 # Simple startup script to avoid some issues observed with container restart
 ADD run-httpd.sh /run-httpd.sh
-RUN chmod a+x /run-httpd.sh && \ 
-	sed -ri "s@display_errors = Off@display_errors = On@" /etc/php.ini && \
-	echo "date.timezone = GMT" >> /etc/php.ini
+RUN chmod a+x /run-httpd.sh 
 
 VOLUME /var/www/html/campaigns/
 EXPOSE 80 443
